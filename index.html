@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="reset/reset.css">
+    <link rel="stylesheet" href="design.css">
+    <script src="https://kit.fontawesome.com/b03856a17e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="header">DofLib</div>
+    <div class="main">
+        <div id="modal">
+            <div class="modal-content">
+                <div class="close"><span class="closebtn">&times;</span></div>
+                <div><h2>Add A Book</h2></div>
+                <label for="title">
+                    <b>Title</b>
+                    <input type="text" id="title"placeholder="Title" name="title" required>
+                </label>
+                <label for="author">
+                    <b>Author</b>
+                    <input type="author" id="author"placeholder="Author" name="author" required>
+                </label>
+                <label for="pages">
+                    <b>Pages</b>
+                    <input type="number" id="pages" min ="0" placeholder="0" name="pages" required>
+                </label>
+                <button onclick="addBookToLibrary()">Add Book</button>
+            </div>
+        </div>
+
+        <div class="books">
+            <div class="add card">
+                <div><b style="font-size:30px;font-weight: 900;">Add Book</b>
+                <i class="fas fa-plus-circle open" onclick=""></i></div>
+            </div>
+
+        </div>
+    </div>
+   
+    <div class="footer"></div>
+
+
+
+
+<script src = "func.js"></script>
+</body>
+</html>

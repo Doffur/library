@@ -10,8 +10,10 @@
     <script src="https://kit.fontawesome.com/b03856a17e.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="header">DofLib</div>
-    <div class="main">
+    <div class="header content">
+        <h2>DofLib</h2>
+    </div>
+    <div class="main content">
         <div id="modal">
             <div class="modal-content">
                 <div class="close"><span class="closebtn">&times;</span></div>
@@ -28,20 +30,32 @@
                     <b>Pages</b>
                     <input type="number" id="pages" min ="0" placeholder="0" name="pages" required>
                 </label>
-                <button onclick="addBookToLibrary()">Add Book</button>
+                <label>
+                    <div>
+                        <b class="readB">Read:</b>
+                        <input class ="checkBox" type="checkbox" value ="read" onclick ="disableOther(this)">   
+                    </div>
+                    <div>
+                        <b class="readB">Not Yet:</b> 
+                        <input class ="checkBox"type="checkbox" value="notyet" onclick ="disableOther(this)">
+                    </div>
+                </label>
+                <button id ="addBook" >Add Book</button>
             </div>
         </div>
 
         <div class="books">
             <div class="add card">
-                <div><b style="font-size:30px;font-weight: 900;">Add Book</b>
-                <i class="fas fa-plus-circle open" onclick=""></i></div>
+                <div class="open">
+                    <b style="font-size:30px;font-weight: 900;">Add Book</b>
+                    <i class="fas fa-plus-circle "></i>
+                </div>
             </div>
 
         </div>
     </div>
    
-    <div class="footer"></div>
+    <div class="footer content">Copyright &#169 2021 Doffur-(Samir Ahajin)</div>
 
 
 

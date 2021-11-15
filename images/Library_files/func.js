@@ -37,38 +37,32 @@ function disableOther(c){//disable other checkbox if the other is checked
 }
 let buttonVal = 1;
 function displayBook(curBook){
-    let cardVal = document.createElement("div");
-    let remove = document.createElement("button"); 
+    let cardVal = document.createElement('div');
+    
     //add details in card
-    let stat = ['Title', 'Author','Pages']
+    let stat = ['Book Number','Title', 'Author','Pages']
     let counter = 0;
     for(const key in curBook){
-        let item = document.createElement("div"); 
-        if(`${key}`== "bookNumber"){
-            console.log("hello");
-            continue;
-        }else if(['read','notyet'].includes(`${curBook[key]}`)){
+        let item = document.createElement('div'); 
+        if(['read','notyet'].includes(`${curBook[key]}`)){
             let buttonRead = document.createElement('button'); 
-            buttonRead.classList.add("read"); 
-            //buttonRead.setAttribute("id",buttonVal);
+            buttonRead.classList.add('read'); 
             let word;
             `${curBook[key]}`=='read'? word = "Already Read":word = "Didn\'t Read Yet";
+            buttonRead.setAttribute("onclick","changeText(this)");
+           
             buttonRead.textContent = word;
             cardVal.appendChild(buttonRead);
         }else{
         item.textContent = `${stat[counter]} : ${curBook[key]}`;
         cardVal.appendChild(item);
+        
         }
         counter++;
-    } 
-    remove.textContent = "Remove";
-    remove.classList.add("remove");
-    remove.setAttribute("id",buttonVal); 
-    cardVal.appendChild(remove);
-    cardVal.classList.add('card');
-    cardVal.setAttribute("id","card"+buttonVal); 
-    bookCollection.appendChild(cardVal);
+    }
     buttonVal++;
+    cardVal.classList.add('card');
+    bookCollection.appendChild(cardVal);
 }
 
 let addBook = document.getElementById('addBook');
@@ -86,23 +80,19 @@ closeModal.addEventListener('click',function(){
 })
 
 window.addEventListener('click',function(e){
-
-
+   
     if(e.target == modal){
         modal.style.display = 'none';
-    }else if(e.target.classList.value == 'read'){
-        //use below if e doesnt work
-        //let button = document.querySelector(`.read[id = "${e.target.id}"]`);
-        e.target.textContent == "Already Read"?e.target.textContent = "Didn\'t Read Yet":e.target.textContent = "Already Read";     
-    }else if(e.target.classList.value == 'remove'){
-        let curCard = document.querySelector(`[id=card${e.target.id}]`)
-        myLibrary.splice(myLibrary.findIndex(a=>a.bookNumber == e.target.id),1);
-        bookCollection.removeChild(curCard);
-        console.log(myLibrary);
-        console.log(bookCollection);
-
-       
     }
-    
+
 })
+
+
+function changeText(){
+
+    console.log(this.name);
+    
+   
+   
+}
 

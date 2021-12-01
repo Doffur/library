@@ -1,84 +1,26 @@
 body{
+    height:100vh;
     width: 100%;
     display: flex;
-    flex-flow: column nowrap;
+    flex-direction: column;
     font-family: Lucidatypewriter, monospace;
- 
+    background-color: rgb(241, 241, 241);
 
-}
-.content{
-    flex: 1;
 }
 .header{
     position: inherit;
     text-align: center;
     padding: 2%;
-    background-color: rgb(5, 5, 255);
+    background-image: linear-gradient(to right, #000428 , #004e92);
 }
-/*Main content */
-.main{
-    background-color: rgb(240, 240, 240);
-}
-.books{
-    padding: 5%;
-    display: flex;
-    flex-flow: row wrap;  
-    justify-content: center;
-    gap: 3rem;
-}
-.add{
+#htitle{
     color: white;
-    background-color: rgb(63, 112, 245);
-    text-align: center;
-    font-size: 80px;
-    padding-top: 20px;
-    transition: all .2s ease-in-out;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 30px;
+    font-weight:1000;
+    letter-spacing: 2rem;
 }
-.add:hover{
-    color: red;
-    background-color: rgb(255, 255, 255);
-    transform: scale(1.1);
-}
-.fa-plus{
-    background-color: black;
-    height: 100px;
-}
-
-.card{
-    height: 200px;
-    min-height: auto;
-    min-width: 200px;
-    max-width: 200px;
-    padding: 1rem;
-    border: 1px;
-    border: 10px solid rgb(63, 112, 245);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    flex: 1 0 21%; 
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    gap: 10px;
-    transition: all .2s ease-in-out;
-
-}
-.card:hover{
-    transform: scale(1.1);
-}
-.card button{
-    margin-bottom: 5px;
-    padding: 5px;
-}
-
-.image{
-    text-align: center;
-    margin-bottom: 4%;
-}
-.image img{   
-    width: 170px;
-    height: 190px;
-    margin: 2px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
+/*modal-start*/
 #modal{
     display: none;
     position: fixed; /* Stay in place */
@@ -93,7 +35,6 @@ body{
 
 }
 /* The Close Button */
-
 .modal-content{
     height: 250px;
     min-height: auto;
@@ -101,7 +42,7 @@ body{
     max-width: 300px;
     margin: 15% auto; 
     padding: 0 2rem;
-    background-color: white;
+    background-image: linear-gradient(to right, #70b8f3 , #137edb);
     border: 1px solid #888;
     display: flex;
     flex-direction: column;
@@ -137,9 +78,136 @@ label{
     text-decoration: none;
     cursor: pointer;
 }
-.footer{
+#addBook{
+    margin-bottom: -20px;
+    padding: 6px 10px;
+    font-weight: bolder;
+    font-size: 15px;
+    color: white;
+    background-color: rgb(255, 41, 41);
+    border-style: none;
+    border-radius: 5px;
+}
+/*modal-end*/
+
+/*Main content */
+.main{
+    flex:3;
+    margin: 0 20%;
+    padding: 10px;
+    background-color: white;
+}
+.books{
+    padding: 5%;
+    display: flex;
+    flex-flow: column nowrap;  
+    justify-content: center;
+    gap: 3rem;
+}
+.add{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 30px;
+    font-weight: bold;
+    font-size: 25px;
+
+}
+.list{
+    flex: 3;
+    padding-left: 3%;
+}
+.open{
+    color: rgb(8, 145, 236);
+    text-align: center;
+    transition: all .2s ease-in-out;
+}
+.open:hover{
+    transform: scale(1.6 );
+}
+.fa-plus{
+    background-color: black;
+    height: 100px;
+}
+
+.card{
+    height: auto;
+    color: rgb(14, 13, 13);
+    background-color: rgb(243, 243, 243);
+    /*background-image: linear-gradient(to right, #2193b0,#6dd5ed);*/
+    padding: 25px 15%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /*flex: 1 0 21%; 4X4 row*/
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+    flex: 1;
+    transition: all .2s ease-in-out;
+
+}
+
+.card:hover{
+    transform: scale(1.1);
+}
+.card div{
+    word-wrap: break-word;
+    
+     /*white-space: nowrap;
+    overflow:hidden;
+    text-overflow: ellipsis;*/
+    /*hides most of the text*/
+}
+.card strong{
+    color: rgb(128, 82, 202);
+    font-weight: bolder;
+  
+}
+.card .buttons{
+    display: flex;
+    flex-flow: row wrap;
+    gap: 10px;
+    justify-content: center;
+    flex:1;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+.buttons button{
+    color: white;
+    padding: 15px;
+    border-radius: 4px;
+    border: none;
+}
+.read{
+    background-color: rgb(240, 33, 6);
+}
+.read:active,.read:visited{
+    background-color: rgb(97, 97, 97);
+}
+.remove{
+    background-color: rgb(116, 115, 115);
+}
+
+.image{
+    text-align: center;
+    margin-bottom: 4%;
+}
+.image img{   
+    width: 170px;
+    height: 190px;
+    margin: 2px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.footer{ 
+    font-weight: bolder;
+   color: rgb(255, 255, 255);
+   max-height: 100px;
+   margin-top: auto;
+   text-align: center;
+   background-color: rgb(129, 128, 128);
    display: flex;
    justify-content: center;
    align-items: center;
    padding: 2%;
+  
 }

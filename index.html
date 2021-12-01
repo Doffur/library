@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library</title>
+    <title>Doffur-Library</title>
     <link rel="stylesheet" href="reset/reset.css">
     <link rel="stylesheet" href="design.css">
     <script src="https://kit.fontawesome.com/b03856a17e.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="header content">
-        <h2>DofLib</h2>
+        <h2 id ="htitle">Dof-Lib</h2>
     </div>
-    <div class="main content">
-        <div id="modal">
+    <div id="modal">
+            <form >
             <div class="modal-content">
                 <div class="close"><span class="closebtn">&times;</span></div>
                 <div><h2>Add A Book</h2></div>
@@ -33,28 +33,31 @@
                 <label>
                     <div>
                         <b class="readB">Read:</b>
-                        <input class ="checkBox" type="checkbox" value ="read" onclick ="disableOther(this)">   
+                        <input class ="checkBox" type="checkbox" value ="read" onclick ="disableOther(this)" required>   
                     </div>
                     <div>
                         <b class="readB">Not Yet:</b> 
-                        <input class ="checkBox"type="checkbox" value="notyet" onclick ="disableOther(this)">
+                        <input class ="checkBox"type="checkbox" value="notyet" onclick ="disableOther(this)" required>
                     </div>
                 </label>
                 <button id ="addBook" >Add Book</button>
             </div>
+        </form>
         </div>
 
+    <div class="main content">
+        <div class="add">
+            <div class="list"><h1>Book List</h1></div>
+            <div class="open">
+                 <i class="fas fa-plus-circle "></i>
+             </div>
+        </div>
+        <hr>
         <div class="books">
-            <div class="add card">
-                <div class="open">
-                    <b style="font-size:30px;font-weight: 900;">Add Book</b>
-                    <i class="fas fa-plus-circle "></i>
-                </div>
-            </div>
+                
 
         </div>
     </div>
-   
     <div class="footer content">Copyright &#169 2021 Doffur-(Samir Ahajin)</div>
 
 

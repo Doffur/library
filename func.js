@@ -2,6 +2,58 @@ let myLibrary =[];
 let bookCollection = document.querySelector('.books');
 let myForm = document.querySelector('form');
 let buttonVal = 1;
+
+
+
+class Book {
+    constructor(bookNumber,title,author,pages,read){
+        this.bookNumber = bookNumber;
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+    
+    displayBook(curBook){
+        let cardVal = document.createElement("div");
+        
+        //add details in card
+        let stat = ['Title', 'Author','Pages']
+        let counter = 0;
+        for(const key in curBook){
+            let item = document.createElement("div"); 
+    
+    
+            if(`${key}`== "bookNumber"){
+                continue;
+            }else if(['read','notyet'].includes(`${curBook[key]}`)){
+                let buttonRead = document.createElement('button'); 
+                let remove = document.createElement("button"); 
+                let word;
+                buttonRead.classList.add("read"); 
+                `${curBook[key]}`=='read'? word = "Already Read":word = "Didn\'t Read Yet";
+                buttonRead.textContent = word;
+                remove.textContent = "Remove";
+                remove.classList.add("remove");
+                item.setAttribute("id",buttonVal); 
+                item.classList.add("buttons");
+                item.appendChild(buttonRead);
+                item.appendChild(remove);
+                cardVal.appendChild(item);
+            }else{
+           //bold the title page author 
+            item.innerHTML =`<strong>${stat[counter]}</strong>:${curBook[key]}`;
+            cardVal.appendChild(item);
+            }
+            counter++;
+        } 
+        cardVal.classList.add('card');
+        cardVal.setAttribute("id","card"+buttonVal); 
+        bookCollection.appendChild(cardVal);
+        buttonVal++;
+    }
+
+}
 let BookDef = new Book()
     BookDef.bookNumber = 1;
     BookDef.title = "Harry Potter and the Philosopher's Stone";
@@ -9,17 +61,7 @@ let BookDef = new Book()
     BookDef.pages = "223";
     BookDef.read = "notyet";
     myLibrary.push(BookDef);
-    displayBook(BookDef);
-
-
-
-function Book(){
-    this.bookNumber;
-    this.title;
-    this.author;
-    this.pages;
-    this.read;
-}
+    BookDef.displayBook(BookDef);
 
 function addBookToLibrary(){
     let bAuthor = document.getElementById('author').value;
@@ -35,7 +77,7 @@ function addBookToLibrary(){
         cBook.read = bRead;
         myLibrary.push(cBook);
         //getting the value inside the array myLibrary[arrayvalue].key
-        displayBook(cBook);
+        cBook.displayBook(cBook);
         let check = document.querySelectorAll('.checkBox');
         check.forEach(a=> a.disabled = false);
         myForm.reset();//reset the input field
@@ -50,44 +92,7 @@ function disableOther(c){//disable other checkbox if the other is checked
 }
 
 
-function displayBook(curBook){
-    let cardVal = document.createElement("div");
-    
-    //add details in card
-    let stat = ['Title', 'Author','Pages']
-    let counter = 0;
-    for(const key in curBook){
-        let item = document.createElement("div"); 
-        let title = document.createElement("div"); 
 
-        if(`${key}`== "bookNumber"){
-            continue;
-        }else if(['read','notyet'].includes(`${curBook[key]}`)){
-            let buttonRead = document.createElement('button'); 
-            let remove = document.createElement("button"); 
-            let word;
-            buttonRead.classList.add("read"); 
-            `${curBook[key]}`=='read'? word = "Already Read":word = "Didn\'t Read Yet";
-            buttonRead.textContent = word;
-            remove.textContent = "Remove";
-            remove.classList.add("remove");
-            item.setAttribute("id",buttonVal); 
-            item.classList.add("buttons");
-            item.appendChild(buttonRead);
-            item.appendChild(remove);
-            cardVal.appendChild(item);
-        }else{
-       //bold the title page author 
-        item.innerHTML =`<strong>${stat[counter]}</strong>:${curBook[key]}`;
-        cardVal.appendChild(item);
-        }
-        counter++;
-    } 
-    cardVal.classList.add('card');
-    cardVal.setAttribute("id","card"+buttonVal); 
-    bookCollection.appendChild(cardVal);
-    buttonVal++;
-}
 
 let addBook = document.getElementById('addBook');
 let closeModal = document.querySelector('.closebtn');
